@@ -318,6 +318,15 @@ function escolhaCavaleiroMago() {
     jogador.dano = Math.floor(Math.random() * (max - min)) + min;
     jogador.nivel = 1;
     jogador.vida = 200;
+    fase = "fase inicial";
+    objRelatorio = new Relatorio(
+      fase,
+      jogador.nome,
+      jogador.classe,
+      jogador.dano,
+      parseInt(jogador.vida)
+    );
+    relatorio.push(objRelatorio);
   } else {
     console.log("Classe diferente de [MAGO] e [CAVALEIRO]");
     escolhaCavaleiroMago();
@@ -334,15 +343,6 @@ function atribuicoesIniciais() {
  DANO: ${jogador.dano}
  NÍVEL: ${jogador.nivel}
  POÇÃO: ${mochila.pocao}`);
-  fase = "fase inicial";
-  objRelatorio = new Relatorio(
-    fase,
-    jogador.nome,
-    jogador.classe,
-    jogador.dano,
-    parseInt(jogador.vida)
-  );
-  relatorio.push(objRelatorio);
   console.log();
   console.log();
   console.log(`FASE - 01`);
