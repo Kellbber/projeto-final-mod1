@@ -286,10 +286,6 @@ Bem-vindo, nobre amigo(a)!
 E se eu te disesse que você tem o poder de mudar a vida de um.. É.. deixa eu pens...    Ah! De um COELHO?!
 Eu me chamo Roberth, sou o protetor da floresta de Grinn. Hoje você decidirá como vai ser a vida do nosso pequeno Coelho...
 Ele perdeu sua mãe logo quando criança... A única imagem que lembra daquele dia é a de uma CENOURA GIGANTE saindo de sua casa...
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bceecf98bbc242f3d551d9478373c67fba98602
 Bom, sem mais delongas, sente-se confortavelmente e vamos nessa!
 `);
   console.log(`
@@ -359,10 +355,7 @@ function atribuicoesIniciais() {
   console.log();
   console.log(`Andando pela trilha, ele se depara com a toca das Aves e pelo outro lado o covil dos Javalis!
 Agora, meu nobre amigo, vou lhe explicar a situação...
-<<<<<<< HEAD
-=======
 
->>>>>>> 1bceecf98bbc242f3d551d9478373c67fba98602
 1- se optar pelo caminho das Aves você irá demorar mais, pois são em maior número!
 2- se optar pelos Javalis, demorará menos, porém você levará mais dano!`);
 }
@@ -573,10 +566,7 @@ function subornoOuLuta() {
   console.log();
   console.log(`Após a batalha, ${jogador.nome} continua seguindo para a capital!
 Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
-<<<<<<< HEAD
-=======
 
->>>>>>> 1bceecf98bbc242f3d551d9478373c67fba98602
 1- usar suas poções como suborno.
 2- lutar contra 2 guardas.`);
   console.log();
