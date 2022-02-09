@@ -7,12 +7,12 @@ min = Math.ceil(min);
 max = Math.floor(max);
 function Relatorio() {
   (this.fase = fase),
-    (this.nome = jogador.nome),
-    (this.classe = jogador.classe),
-    (this.dano = jogador.dano),
-    (this.vida = jogador.vida),
-    (this.escolhaCaminho = escolhaCaminho),
-    (this.calculoDeRounds = calculoDeRounds);
+  (this.nome = jogador.nome),
+  (this.classe = jogador.classe),
+  (this.dano = jogador.dano),
+  (this.vida = jogador.vida),
+  (this.escolhaCaminho = escolhaCaminho),
+  (this.calculoDeRounds = calculoDeRounds);
 }
 const relatorio = [];
 let objRelatorio = {};
