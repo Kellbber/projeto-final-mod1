@@ -709,7 +709,7 @@ function relatorioFinalEndGame() {
 }
 loopExterno: while (true) {
   boasVindas();
-  let resposta = '';
+  let resposta = "";
   for (x = 0; x < 5; x++) {
     if (jogador.vida < 1) {
       console.log(`ACABOU`);
