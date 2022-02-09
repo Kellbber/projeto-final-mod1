@@ -97,7 +97,6 @@ const urso = {
 '       ███    ███   ██████████   ███    ███████     ██    ████████    ██    ███████████████    ██ 
 '  ██   ███    ███    ███   ███   ███    ███   ██     ██  ██     ██    ██    ███   ██    ███    ██ 
 '   █████ ██████ ████████   ███████ ████████   ██      ████ ███████     ████████   ██████████████
-
 `);
     let vidaDosMonstros = urso.vida * urso.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
@@ -131,7 +130,6 @@ const tartaruga = {
 '       ███    ███   ██████████   ███    ███████     ██    ████████       ██ ████████████  ██ ██████████████    ███   █████████ 
 '  ██   ███    ███    ███   ███   ███    ███   ██     ██  ██     ██       ██ ██   ███   ██ ██ ██   ███   ███    ███    ███   ██ 
 '   █████ ██████ ████████   ███████ ████████   ██      ████ ███████       ██ ██   ███   ██ ██ ██   ███   ████████ ████████   ██
-
 `);
     let vidaDosMonstros = tartaruga.vida * tartaruga.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
@@ -165,7 +163,6 @@ const escorpiao = {
 '       ███    ███   ██████████   ███    ███████     ██    ████████    █████ ████████   ██    ██████████████████████    ██ 
 '  ██   ███    ███    ███   ███   ███    ███   ██     ██  ██     ██    ██         ███   ██    ███   ███    ███   ███    ██ 
 '   █████ ██████ ████████   ███████ ████████   ██      ████ ███████    ██████████████████████████   ███    ███   ███████
-
 `);
     let vidaDosMonstros = escorpiao.vida * escorpiao.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
@@ -199,7 +196,6 @@ const tatu = {
 '       ███    ███   ██████████   ███    ███████     ██    ████████       ██ ███████ ██  ██    ██ 
 '  ██   ███    ███    ███   ███   ███    ███   ██     ██  ██     ██       ██ ██   ██ ██  ██    ██ 
 '   █████ ██████ ████████   ███████ ████████   ██      ████ ███████       ██ ██   ██ ██   ██████ 
-
 `);
     let vidaDosMonstros = tatu.vida * tatu.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
@@ -233,7 +229,6 @@ const guarda = {
 '       ███    ███   ██████████   ███    ███████     ██    ████████    ██   ████    ███████████████   ██████████████ 
 '  ██   ███    ███    ███   ███   ███    ███   ██     ██  ██     ██    ██    ███    ███   ███   ███   ███   ██    ██ 
 '   █████ ██████ ████████   ███████ ████████   ██      ████ ███████     ██████ ████████   ███   █████████   ████████
-
 `);
     let vidaDosMonstros = guarda.vida * guarda.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
@@ -288,15 +283,10 @@ function boasVindas() {
   console.log();
   console.log(`
 Bem-vindo, nobre amigo(a)!
-
 E se eu te disesse que você tem o poder de mudar a vida de um.. É.. deixa eu pens...    Ah! De um COELHO?!
-
-
 Eu me chamo Roberth, sou o protetor da floresta de Grinn. Hoje você decidirá como vai ser a vida do nosso pequeno Coelho...
-
 Ele perdeu sua mãe logo quando criança... A única imagem que lembra daquele dia é a de uma CENOURA GIGANTE saindo de sua casa...
-
-Bom, sem mais delongas, sente-se confortávelmente e vamos nessa!
+Bom, sem mais delongas, sente-se confortavelmente e vamos nessa!
 `);
   console.log(`
 (+___/)
@@ -338,7 +328,6 @@ function atribuicoesIniciais() {
   // inicio 2
   console.log();
   console.log(`Perfeito! Essa são suas atribuições iniciais:
-
  NOME: ${jogador.nome}
  CLASSE: ${jogador.classe}
  VIDA: ${jogador.vida}
@@ -365,10 +354,8 @@ function atribuicoesIniciais() {
   );
   console.log();
   console.log(`Andando pela trilha, ele se depara com a toca das Aves e pelo outro lado o covil dos Javalis!
-
 Agora, meu nobre amigo, vou lhe explicar a situação...
-
-1- se optar pelo caminho das Aves você irá demorar mais, pois sao em maior número!
+1- se optar pelo caminho das Aves você irá demorar mais, pois são em maior número!
 2- se optar pelos Javalis, demorará menos, porém você levará mais dano!`);
 }
 function escolherCaminhoJavaliAves() {
@@ -424,7 +411,7 @@ function escolherCaminhoJavaliAves() {
       mochilaAbrirFechar();
     }
   } else {
-    console.log("Erro, escolha precisa ser [AVES] ou [JAVALI]");
+    console.log("Erro, a escolha precisa ser [AVES] ou [JAVALI]");
     escolherCaminhoJavaliAves();
   }
 }
@@ -452,7 +439,7 @@ function mochilaAbrirFechar() {
       console.log();
     }
   } else {
-    console.log("Erro, escolha precisa ser [ABRIR] ou [CONTINUAR]");
+    console.log("Erro, a escolha precisa ser [ABRIR] ou [CONTINUAR]");
     mochilaAbrirFechar();
   }
 }
@@ -578,8 +565,7 @@ function subornoOuLuta() {
   console.log();
   console.log(`Após a batalha, ${jogador.nome} continua seguindo para a capital!
 Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
-
-1- usar suas poções como suborno,
+1- usar suas poções como suborno.
 2- lutar contra 2 guardas.`);
   console.log();
   escolhaUsuario = prompt(`Escolha entre [SUBORNO] ou [LUTAR]: `)
