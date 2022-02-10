@@ -295,8 +295,7 @@ Bom, sem mais delongas, sente-se confortavelmente e vamos nessa!
 (")_(")`);
   nomeCoelhoUsuario();
 }
-function nomeCoelhoUsuario() {
-  //nome do usuario
+function nomeCoelhoUsuario() {//nome do usuario
   console.log();
   jogador.nome = prompt("Digite o nome que você deseja para o coelho: ");
   if (jogador.nome.length <= 3) {
@@ -306,8 +305,7 @@ function nomeCoelhoUsuario() {
     escolhaCavaleiroMago();
   }
 }
-function escolhaCavaleiroMago() {
-  //escolha de classe
+function escolhaCavaleiroMago() {//escolha de classe
   console.log();
   jogador.classe = prompt(
     "Digite a escolha de sua classe: [CAVALEIRO] ou [MAGO]: "
@@ -333,8 +331,7 @@ function escolhaCavaleiroMago() {
   }
   atribuicoesIniciais();
 }
-function atribuicoesIniciais() {
-  // inicio 2
+function atribuicoesIniciais() {// inicio 2
   console.log();
   console.log(`Perfeito! Essa são suas atribuições iniciais:
  NOME: ${jogador.nome}
@@ -359,8 +356,7 @@ Agora, meu nobre amigo, vou lhe explicar a situação...
 1- se optar pelo caminho das Aves você irá demorar mais, pois são em maior número!
 2- se optar pelos Javalis, demorará menos, porém você levará mais dano!`);
 }
-function escolherCaminhoJavaliAves() {
-  //escolha do usuario de combate - AVES OU JAVALI
+function escolherCaminhoJavaliAves() {//escolha do usuario de combate - AVES OU JAVALI
   console.log();
   escolhaUsuario = prompt(
     `Qual caminho você escolherá para ${jogador.nome}? [AVES] ou [JAVALI]: `
@@ -376,6 +372,7 @@ function escolherCaminhoJavaliAves() {
 [${jogador.nome}]: Você não me deixa escolha a não ser obrigá-lo a me deixar passar.
 [JAVALI]: Então, tente, jovem coelho...`);
       javali.combateJavalis();
+      if(jogador.vida>1){
       fase = "fase 1";
       escolhaCaminho = "caminho javali";
       objRelatorio = new Relatorio(
@@ -389,6 +386,21 @@ function escolherCaminhoJavaliAves() {
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
+        fase = "fase 1";
+        escolhaCaminho = "caminho javali";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +javali.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+      }
     } else {
       console.log();
       console.log(`[AVES]: Quem ousa adentrar nos nossos domínios da floresta?
@@ -397,6 +409,7 @@ function escolherCaminhoJavaliAves() {
 [${jogador.nome}]: Você não me deixa escolha a não ser obrigá-las a me deixar passar.
 [AVES]: Então, tente, jovem coelho...`);
       aves.combateAves();
+      if(jogador.vida>1){
       fase = "fase 1";
       escolhaCaminho = "caminho aves";
       objRelatorio = new Relatorio(
@@ -410,14 +423,28 @@ function escolherCaminhoJavaliAves() {
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
+        fase = "fase 1";
+        escolhaCaminho = "caminho aves";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +aves.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+      }
     }
   } else {
     console.log("Erro, a escolha precisa ser [AVES] ou [JAVALI]");
     escolherCaminhoJavaliAves();
   }
 }
-function mochilaAbrirFechar() {
-  //opcao entre abrir mochila ou continuar jornada
+function mochilaAbrirFechar() {//opcao entre abrir mochila ou continuar jornada
   console.log();
   console.log(
     `${jogador.nome} perdeu vida durante a batalha e está com ${parseInt(
@@ -444,8 +471,7 @@ function mochilaAbrirFechar() {
     mochilaAbrirFechar();
   }
 }
-function escolhaUrsoTartaruga() {
-  //tomada de decisao sobre os animais urso e tartaruga
+function escolhaUrsoTartaruga() {//tomada de decisao sobre os animais urso e tartaruga
   console.log(`FASE - 02`);
   console.log();
   console.log(`Continuando sua jornada, ${jogador.nome} chegou em pequena vila, chamada Harvest.
@@ -462,6 +488,7 @@ Seguindo o boato, você prefere ir atrás do suposto Urso em forma de cenoura ou
 [URSO]: Ahn? Como assim? Acho que você está me confundindo com outro ser...
 [${jogador.nome}]: Não tente me enganar! Eu sei quem você é e o que você fez! Prepare-se!`);
       urso.combateUrsos();
+      if(jogador.vida>1){
       fase = "fase 2";
       escolhaCaminho = "caminho ursos";
       objRelatorio = new Relatorio(
@@ -475,12 +502,28 @@ Seguindo o boato, você prefere ir atrás do suposto Urso em forma de cenoura ou
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
+        fase = "fase 2";
+        escolhaCaminho = "caminho ursos";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +urso.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+      }
     } else {
       console.log();
       console.log(`[${jogador.nome}]: Parado, Cenoura Gigante!
 [TARTARUGA]: Ahn? Como assim? Acho que você está me confundindo com outro ser...
 [${jogador.nome}]: Não tente me enganar! Eu sei quem você é e o que você fez! Prepare-se!`);
       tartaruga.combateTartarugas();
+      if(jogador.vida>1){
       fase = "fase 2";
       escolhaCaminho = "caminho tartarugas";
       objRelatorio = new Relatorio(
@@ -494,14 +537,27 @@ Seguindo o boato, você prefere ir atrás do suposto Urso em forma de cenoura ou
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
+        fase = "fase 2";
+        escolhaCaminho = "caminho tartarugas";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +tartaruga.calculoDeRounds
+        );
+      }
     }
   } else {
     console.log("Erro, escolha precisa ser [URSO] ou [TARTARUGA]");
     escolhaUrsoTartaruga();
   }
 }
-function escolhaOreoPiraque() {
-  //tomada de decisao sobre as cidades
+function escolhaOreoPiraque() {//tomada de decisao sobre as cidades
   console.log();
   console.log(`FASE - 03`);
   console.log();
@@ -521,6 +577,7 @@ Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blind
 [${jogador.nome}]: Diga-me, Escorpião. Onde posso encontrar a Cenoura Gigante?
 [ESCORPIÃO]: Então é você quem vem derrotando os meus aliados? Não permitirei que passe daqui!`);
       escorpiao.combateEscorpiao();
+      if(jogador.vida>1){
       fase = "fase 3";
       escolhaCaminho = "caminho Oreo(escorpião)";
       objRelatorio = new Relatorio(
@@ -534,12 +591,28 @@ Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blind
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate e morreu...`);
+        fase = "fase 3";
+        escolhaCaminho = "caminho Oreo(escorpião)";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +escorpiao.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+      }
     } else {
       console.log();
       console.log(`Chegando à cidade de PIRAQUE, ${jogador.nome} logo encontrou com o Tatu.
 [${jogador.nome}]: Diga-me, Tatu. Onde posso encontrar a Cenoura Gigante?
 [TATU]: Então é você quem vem derrotando os meus aliados? Não permitirei que passe daqui!`);
       tatu.combateTatu();
+      if(jogador.vida>1){
       fase = "fase 3";
       escolhaCaminho = "caminho Piraque(tatu)";
       objRelatorio = new Relatorio(
@@ -553,14 +626,28 @@ Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blind
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate e morreu...`);
+        fase = "fase 3";
+        escolhaCaminho = "caminho Piraque(tatu)";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +tatu.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+      }
     }
   } else {
     console.log("Erro, escolha precisa ser [OREO] ou [PIRAQUE]");
     escolhaOreoPiraque();
   }
 }
-function subornoOuLuta() {
-  //tomada de decisao suborno ou luta
+function subornoOuLuta() {//tomada de decisao suborno ou luta
   console.log();
   console.log(`FASE - 04`);
   console.log();
@@ -581,6 +668,7 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
 [GUARDA-2]: HAHAHA, você que manda aqui agora? Não pode passar!
 [${jogador.nome}]: Vocês não me deixam outra escolha...`);
       guarda.combateGuarda();
+      if(jogador.vida>1){
       fase = "fase 4";
       escolhaCaminho = "caminho luta guarda";
       objRelatorio = new Relatorio(
@@ -594,10 +682,8 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
       );
       relatorio.push(objRelatorio);
       mochilaAbrirFechar();
-    } else {
-      if (mochila.pocao <= 0) {
-        console.log(`Você não possui poções, será obrigado a lutar`);
-        guarda.combateGuarda();
+      }else{
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
         fase = "fase 4";
         escolhaCaminho = "caminho luta guarda";
         objRelatorio = new Relatorio(
@@ -610,6 +696,39 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
           +guarda.calculoDeRounds
         );
         relatorio.push(objRelatorio);
+      }
+    } else {
+      if (mochila.pocao <= 0) {
+        console.log(`Você não possui poções, será obrigado a lutar`);
+        guarda.combateGuarda();
+        if(jogador.vida>1){
+        fase = "fase 4";
+        escolhaCaminho = "caminho luta guarda";
+        objRelatorio = new Relatorio(
+          fase,
+          jogador.nome,
+          jogador.classe,
+          jogador.dano,
+          parseInt(jogador.vida),
+          escolhaCaminho,
+          +guarda.calculoDeRounds
+        );
+        relatorio.push(objRelatorio);
+        }else{
+          console.log(`O ${jogador.nome} não resistiu ao combate...`);
+          fase = "fase 4";
+          escolhaCaminho = "caminho luta guarda";
+          objRelatorio = new Relatorio(
+            fase,
+            jogador.nome,
+            jogador.classe,
+            jogador.dano,
+            parseInt(jogador.vida),
+            escolhaCaminho,
+            +guarda.calculoDeRounds
+          );
+          relatorio.push(objRelatorio);
+        }
       }
       console.log();
       console.log(`[GUARDA-1]: Permissão para passagem, Coelhinho...
@@ -633,9 +752,11 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
     subornoOuLuta();
   }
 }
-function criandoMonstroFinal() {
+function criandoMonstroFinal() {//construção monstro final
   console.log();
-  console.log(`${jogador.nome} chega em Emerald, a capital do país!
+  console.log(`*FASE FINAL*
+  
+  ${jogador.nome} chega em Emerald, a capital do país!
 Só que uma coisa que ele não contava está acontecendo...
 O vilão de seus sonhos está atacando a cidade!!!!! Se puxar na sua memória, como ele era?`);
   console.log();
@@ -667,10 +788,10 @@ console.log(`[${jogador.nome}]: ENFIM!!!... ATÉ QUE ENFIM EU LHE ENCONTREI, ${m
 [${monstroFinal.nome}]: Por acaso eu deveria conhecê-lo?`);
 console.log();                                                                                                                                                                                                                                                         
 }
-function batalhaMonstroFinal() {
+function batalhaMonstroFinal() {//monstro final criado
   vidaDosMonstro = monstroFinal.vida;
   calculoDeRounds = parseInt(vidaDosMonstro / jogador.dano);
-  jogador.vida = parseInt(jogador.vida - calculoDeRounds * 1);
+  jogador.vida = parseInt(jogador.vida - calculoDeRounds * 3);
   if (jogador.vida <= 0) {
     console.log(
       `Infelizmente, ${jogador.nome} não conseguiu derrotar o ${monstroFinal.nome}.`);
@@ -694,15 +815,15 @@ function batalhaMonstroFinal() {
   );
   relatorio.push(objRelatorio);
 }
-function relatorioFinalEndGame() {
+function relatorioFinalEndGame() {// relatorio no final do game
   console.table(relatorio);
 }
+
 loopExterno: while (true) {
   boasVindas();
   let resposta = "";
   for (x = 0; x < 5; x++) {
     if (jogador.vida < 1) {
-      console.log(`ACABOU`);
       break;
     }
     if (x == 0) {
@@ -720,7 +841,9 @@ loopExterno: while (true) {
   }
   resposta = prompt(`DESEJA REINICIAR O JOGO? [SIM] ou [NAO]? `).toUpperCase().trim();
   if (resposta === "SIM") {
+    console.clear();
     relatorioFinalEndGame();
+    
     boasVindas();
   }else{
       break loopExterno;
