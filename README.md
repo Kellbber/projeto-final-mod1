@@ -14,5 +14,8 @@ No final, você também pode criar o monstro final livremente, escolhendo o nome
 ##
 
 ## Alunos participantes: Mônica Dias, Rodrigo de Oliveira e Kellbber Barcarolo.
+https://github.com/monicahdias
+##
+https://github.com/rodri-oliveira
 
 
