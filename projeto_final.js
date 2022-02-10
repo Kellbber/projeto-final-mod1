@@ -20,8 +20,7 @@ let fase = "";
 let escolhaCaminho = "";
 let calculoDeRounds = "";
 let escolhaUsuario = "";
-//animal javali
-const javali = {
+const javali = {//animal javali
   quantidade: 2,
   vida: 100,
   combateJavalis: () => {
@@ -53,8 +52,7 @@ const javali = {
     }
   },
 };
-//animal aves
-const aves = {
+const aves = {//animal aves
   quantidade: 10,
   vida: 20,
   combateAves: () => {
@@ -86,8 +84,7 @@ const aves = {
     }
   },
 };
-//animal urso
-const urso = {
+const urso = {//animal urso
   quantidade: 2,
   vida: 150,
   combateUrsos: () => {
@@ -119,8 +116,7 @@ const urso = {
     }
   },
 };
-//animal tartaruga
-const tartaruga = {
+const tartaruga = {//animal tartaruga
   quantidade: 5,
   vida: 70,
   combateTartarugas: () => {
@@ -152,8 +148,7 @@ const tartaruga = {
     }
   },
 };
-//animal escorpiao
-const escorpiao = {
+const escorpiao = {//animal escorpiao
   quantidade: 1,
   vida: 250,
   combateEscorpiao: () => {
@@ -185,8 +180,7 @@ const escorpiao = {
     }
   },
 };
-//animal tatu
-const tatu = { 
+const tatu = {//animal tatu
   quantidade: 1,
   vida: 400,
   combateTatu: () => {
@@ -218,8 +212,8 @@ const tatu = {
     }
   },
 };
-//guarda
-const guarda = {
+
+const guarda = {//guarda
   quantidade: 2,
   vida: 450,
   combateGuarda: () => {
@@ -251,16 +245,16 @@ const guarda = {
     }
   },
 };
-//escolha da Arma
-function arma() {
+
+function arma() {//escolha da Arma
   if (jogador.classe == "CAVALEIRO") {
     return "ESPADA";
   } else {
     return "CAJADO";
   }
 }
-//se usuario escolher abrir mochila
-function escolhaAbrirMochila() {
+
+function escolhaAbrirMochila() {//se usuario escolher abrir mochila
   mochila.abrirMochila();
   if (mochila.pocao > 0) {
     console.log(`Você consumiu uma poção.
@@ -271,15 +265,14 @@ MOCHILA: POÇÃO: ${mochila.pocao}`);
 MOCHILA: POÇÃO: ${mochila.pocao}`);
   }
 }
-//mochila
-const mochila = {
+const mochila = {//mochila
   pocao: 2,
   abrirMochila: () => {
     mochila.pocao--;
   },
 };
-function boasVindas() {
-  // inicio1 1
+function boasVindas() {  // inicio1 1
+
   console.log();
   console.log(`
 Bem-vindo, nobre amigo(a)!
