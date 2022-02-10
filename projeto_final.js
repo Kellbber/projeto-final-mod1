@@ -819,7 +819,7 @@ function relatorioFinalEndGame() {// relatorio no final do game
   console.table(relatorio);
 }
 
-loopExterno: while (true) {
+loopExterno: while (true) {//looping
   boasVindas();
   let resposta = "";
   for (x = 0; x < 5; x++) {
