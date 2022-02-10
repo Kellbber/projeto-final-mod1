@@ -793,14 +793,19 @@ function batalhaMonstroFinal() {//monstro final criado
   calculoDeRounds = parseInt(vidaDosMonstro / jogador.dano);
   jogador.vida = parseInt(jogador.vida - calculoDeRounds * 3);
   if (jogador.vida <= 0) {
-    console.log(
-      `Infelizmente, ${jogador.nome} não conseguiu derrotar o ${monstroFinal.nome}.`);
+    console.log(`
+[${jogador.nome}]: Mesmo perdendo eu mereço uma resposta! Me diga ${monstroFinal.nome}, realmente foi você?
+[${monstroFinal.nome}]: Infelizmente, ${jogador.nome}, não tive o prazer de desimar a sua família! Até então nem lhe conhecia...`);
+
   } else {
+console.log(`Nas suas últimas palavras, ${monstroFinal.nome} diz: Mas... Mas não fui eu! Eu não lhe conhecia, muito menos a sua mãe!
+[${jogador.nome}]: Depois de todo esse tempo, de caçar vários monstros para me vingar... Você me diz que não foi você?`)
     console.log(
       `${jogador.nome} demorou ${parseInt(
         calculoDeRounds
-      )} rounds para matar o ${monstroFinal.nome}!`
-    );
+      )} rounds para matar o ${monstroFinal.nome}!
+      
+CONTINUA...`);
   }
   fase = "fase final";
   escolhaCaminho = `monstro final nome: ${monstroFinal.nome}`;
