@@ -472,6 +472,7 @@ function mochilaAbrirFechar() {//opcao entre abrir mochila ou continuar jornada
   }
 }
 function escolhaUrsoTartaruga() {//tomada de decisao sobre os animais urso e tartaruga
+  console.log();
   console.log(`FASE - 02`);
   console.log();
   console.log(`Continuando sua jornada, ${jogador.nome} chegou em pequena vila, chamada Harvest.
@@ -590,9 +591,9 @@ Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blind
         +escorpiao.calculoDeRounds
       );
       relatorio.push(objRelatorio);
-      mochilaAbrirFechar();
+      if(!mochila.pocao<1){mochilaAbrirFechar()};
       }else{
-        console.log(`O ${jogador.nome} não resistiu ao combate e morreu...`);
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
         fase = "fase 3";
         escolhaCaminho = "caminho Oreo(escorpião)";
         objRelatorio = new Relatorio(
@@ -625,9 +626,9 @@ Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blind
         +tatu.calculoDeRounds
       );
       relatorio.push(objRelatorio);
-      mochilaAbrirFechar();
+      if(!mochila.pocao<1){mochilaAbrirFechar()};
       }else{
-        console.log(`O ${jogador.nome} não resistiu ao combate e morreu...`);
+        console.log(`O ${jogador.nome} não resistiu ao combate...`);
         fase = "fase 3";
         escolhaCaminho = "caminho Piraque(tatu)";
         objRelatorio = new Relatorio(
@@ -755,7 +756,7 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
 function criandoMonstroFinal() {//construção monstro final
   console.log();
   console.log(`*FASE FINAL*
-  
+
   ${jogador.nome} chega em Emerald, a capital do país!
 Só que uma coisa que ele não contava está acontecendo...
 O vilão de seus sonhos está atacando a cidade!!!!! Se puxar na sua memória, como ele era?`);
@@ -763,19 +764,11 @@ O vilão de seus sonhos está atacando a cidade!!!!! Se puxar na sua memória, c
   monstroFinal.nome = prompt("Digite o nome que você deseja para o monstro: ");
   monstroFinal.vida = +prompt("Digite a quantidade de vida do monstro: ");
   console.log();
-  if (
-    monstroFinal.nome.length <= 3 ||
-    (monstroFinal.vida <= 0 && monstroFinal.vida >= 600)
-  ) {
-    console.log(
-      "O nome do monstro precisa ser maior que 3 e a vida não pode ser menor que 0 e nem maior que 600! "
-    );
-    criandoMonstroFinal();
-  } else {
+  if ((monstroFinal.nome.length >3)&&(monstroFinal.vida >0) && (monstroFinal.vida < 600)) {
     console.log(`Depois de puxar na sua memória o monstro ficou assim:   
 nome: ${monstroFinal.nome}
 vida: ${monstroFinal.vida}`);
-  }
+
 console.log();
 console.log(`
 '       ████████ ██████ ███████████ ████████████     ██    ████████    ██████ ███████████████████    ██████████    █████████      
@@ -786,7 +779,14 @@ console.log(`
                                                                                                                                  `);
 console.log(`[${jogador.nome}]: ENFIM!!!... ATÉ QUE ENFIM EU LHE ENCONTREI, ${monstroFinal.nome}!
 [${monstroFinal.nome}]: Por acaso eu deveria conhecê-lo?`);
-console.log();                                                                                                                                                                                                                                                         
+console.log();
+}
+    
+ else {
+   console.log(`Nome deve ser maior que 3, vida maior que 0 e menor que 600! `);
+   criandoMonstroFinal();
+                                                                                                                                                                                                                                                         
+}
 }
 function batalhaMonstroFinal() {//monstro final criado
   vidaDosMonstro = monstroFinal.vida;
