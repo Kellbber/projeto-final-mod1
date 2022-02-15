@@ -841,8 +841,6 @@ loopExterno: while (true) {//looping
   if (resposta === "SIM") {
     console.clear();
     relatorioFinalEndGame();
-    
-    boasVindas();
   }else{
       break loopExterno;
   }
