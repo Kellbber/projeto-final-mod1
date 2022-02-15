@@ -20,7 +20,8 @@ let fase = "";
 let escolhaCaminho = "";
 let calculoDeRounds = "";
 let escolhaUsuario = "";
-const javali = {//animal javali
+//animal javali
+const javali = {
   quantidade: 2,
   vida: 100,
   combateJavalis: () => {
@@ -52,7 +53,8 @@ const javali = {//animal javali
     }
   },
 };
-const aves = {//animal aves
+//animal aves
+const aves = {
   quantidade: 10,
   vida: 20,
   combateAves: () => {
@@ -84,7 +86,8 @@ const aves = {//animal aves
     }
   },
 };
-const urso = {//animal urso
+//animal urso
+const urso = {
   quantidade: 2,
   vida: 150,
   combateUrsos: () => {
@@ -116,7 +119,8 @@ const urso = {//animal urso
     }
   },
 };
-const tartaruga = {//animal tartaruga
+//animal tartaruga
+const tartaruga = {
   quantidade: 5,
   vida: 70,
   combateTartarugas: () => {
@@ -148,7 +152,8 @@ const tartaruga = {//animal tartaruga
     }
   },
 };
-const escorpiao = {//animal escorpiao
+//animal escorpiao
+const escorpiao = {
   quantidade: 1,
   vida: 250,
   combateEscorpiao: () => {
@@ -180,7 +185,8 @@ const escorpiao = {//animal escorpiao
     }
   },
 };
-const tatu = {//animal tatu
+//animal tatu
+const tatu = { 
   quantidade: 1,
   vida: 400,
   combateTatu: () => {
@@ -212,8 +218,8 @@ const tatu = {//animal tatu
     }
   },
 };
-
-const guarda = {//guarda
+//guarda
+const guarda = {
   quantidade: 2,
   vida: 450,
   combateGuarda: () => {
@@ -226,7 +232,7 @@ const guarda = {//guarda
 `);
     let vidaDosMonstros = guarda.vida * guarda.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
-    jogador.vida = parseInt(jogador.vida - calculoDeRounds * 3);
+    jogador.vida = parseInt(jogador.vida - calculoDeRounds * 2);
     console.log(
       `Demorou ${parseInt(calculoDeRounds)} rounds para matar os Guardas!`
     );
@@ -245,16 +251,16 @@ const guarda = {//guarda
     }
   },
 };
-
-function arma() {//escolha da Arma
+//escolha da Arma
+function arma() {
   if (jogador.classe == "CAVALEIRO") {
     return "ESPADA";
   } else {
     return "CAJADO";
   }
 }
-
-function escolhaAbrirMochila() {//se usuario escolher abrir mochila
+//se usuario escolher abrir mochila
+function escolhaAbrirMochila() {
   mochila.abrirMochila();
   if (mochila.pocao > 0) {
     console.log(`Você consumiu uma poção.
@@ -265,14 +271,15 @@ MOCHILA: POÇÃO: ${mochila.pocao}`);
 MOCHILA: POÇÃO: ${mochila.pocao}`);
   }
 }
-const mochila = {//mochila
+//mochila
+const mochila = {
   pocao: 2,
   abrirMochila: () => {
     mochila.pocao--;
   },
 };
-function boasVindas() {  // inicio1 1
-
+function boasVindas() {
+  // inicio1 1
   console.log();
   console.log(`
 Bem-vindo, nobre amigo(a)!
@@ -326,7 +333,9 @@ function escolhaCavaleiroMago() {//escolha de classe
 }
 function atribuicoesIniciais() {// inicio 2
   console.log();
+  mochila.pocao=2;
   console.log(`Perfeito! Essa são suas atribuições iniciais:
+
  NOME: ${jogador.nome}
  CLASSE: ${jogador.classe}
  VIDA: ${jogador.vida}
@@ -345,7 +354,6 @@ function atribuicoesIniciais() {// inicio 2
   console.log();
   console.log(`Andando pela trilha, ele se depara com a toca das Aves e pelo outro lado o covil dos Javalis!
 Agora, meu nobre amigo, vou lhe explicar a situação...
-
 1- se optar pelo caminho das Aves você irá demorar mais, pois são em maior número!
 2- se optar pelos Javalis, demorará menos, porém você levará mais dano!`);
 }
@@ -647,7 +655,6 @@ function subornoOuLuta() {//tomada de decisao suborno ou luta
   console.log();
   console.log(`Após a batalha, ${jogador.nome} continua seguindo para a capital!
 Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
-
 1- usar suas poções como suborno.
 2- lutar contra 2 guardas.`);
   console.log();
@@ -675,7 +682,7 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
         +guarda.calculoDeRounds
       );
       relatorio.push(objRelatorio);
-      mochilaAbrirFechar();
+      if(!mochila.pocao<1){mochilaAbrirFechar()};
       }else{
         console.log(`O ${jogador.nome} não resistiu ao combate...`);
         fase = "fase 4";
@@ -692,7 +699,8 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
         relatorio.push(objRelatorio);
       }
     } else {
-      if (mochila.pocao <= 0) {
+      if (mochila.pocao <= 0){
+        console.log();
         console.log(`Você não possui poções, será obrigado a lutar`);
         guarda.combateGuarda();
         if(jogador.vida>1){
@@ -725,9 +733,6 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
         }
       }
       console.log();
-      console.log(`[GUARDA-1]: Permissão para passagem, Coelhinho...
-[${jogador.nome}]: Não tenho tal permissão, mas posso ter algo que seja interessante para vocês.
-[GUARDA-2]: Hmm... acho que não há mal em aceitarmos um presente por uma permissão, não?`);
       mochila.pocao = 0;
       fase = "fase 4";
       escolhaCaminho = "caminho suborno";
@@ -754,8 +759,8 @@ function criandoMonstroFinal() {//construção monstro final
 Só que uma coisa que ele não contava está acontecendo...
 O vilão de seus sonhos está atacando a cidade!!!!! Se puxar na sua memória, como ele era?`);
   console.log();
-  monstroFinal.nome = prompt("Digite o nome que você deseja para o monstro: ");
-  monstroFinal.vida = +prompt("Digite a quantidade de vida do monstro: ");
+  monstroFinal.nome = prompt("Digite o nome que você deseja para o monstro [MAIOR QUE 3 CARACTERES]: ");
+  monstroFinal.vida = +prompt("Digite a quantidade de vida do monstro [ENTRE 1 e 599]: ");
   console.log();
   if ((monstroFinal.nome.length >3)&&(monstroFinal.vida >0) && (monstroFinal.vida < 600)) {
     console.log(`Depois de puxar na sua memória o monstro ficou assim:   
@@ -786,12 +791,34 @@ function batalhaMonstroFinal() {//monstro final criado
   calculoDeRounds = parseInt(vidaDosMonstro / jogador.dano);
   jogador.vida = parseInt(jogador.vida - calculoDeRounds * 3);
   if (jogador.vida <= 0) {
+console.log(`[SONS DE ESPADA]: fuuuuim, TIN TIN...
+[SONS DO MONSTRO]:HUAAAAAAR, BOOOM...`)
+console.log();
+    console.log(`${jogador.nome} não resistiu e perdeu a batalha para ${monstroFinal.nome}...`)
     console.log(`
+
+nisso, se levanta uma enorme fumaça... ninguém está enxergando nada...
+
+[FUMAÇA SE DISSIPA]
+
+[CENÁRIO TRISTE] ...
+
 [${jogador.nome}]: Mesmo perdendo eu mereço uma resposta! Me diga ${monstroFinal.nome}, realmente foi você?
 [${monstroFinal.nome}]: Infelizmente, ${jogador.nome}, não tive o prazer de desimar a sua família! Até então nem lhe conhecia...`);
+console.log();
 
   } else {
-console.log(`Nas suas últimas palavras, ${monstroFinal.nome} diz: Mas... Mas não fui eu! Eu não lhe conhecia, muito menos a sua mãe!
+console.log(`[SONS DE ESPADA]: fuuuuim, TIN TIN...
+[SONS DO MONSTRO]:HUAAAAAAR, BOOOM...`)
+console.log();
+    console.log(`${jogador.nome} consegue derrotar ${monstroFinal.nome}!`)
+    console.log();
+console.log(`
+${monstroFinal.nome} está no chão...
+
+[${jogador.nome} se aproxima de ${monstroFinal.nome}]...
+
+Nas suas últimas palavras, ${monstroFinal.nome} diz: Mas... Mas não fui eu! Eu não lhe conhecia, muito menos a sua mãe!
 [${jogador.nome}]: Depois de todo esse tempo, de caçar vários monstros para me vingar... Você me diz que não foi você?`)
     console.log(
       `${jogador.nome} demorou ${parseInt(
@@ -799,6 +826,7 @@ console.log(`Nas suas últimas palavras, ${monstroFinal.nome} diz: Mas... Mas n�
       )} rounds para matar o ${monstroFinal.nome}!
       
 CONTINUA...`);
+console.log();
   }
   fase = "fase final";
   escolhaCaminho = `monstro final nome: ${monstroFinal.nome}`;
@@ -837,7 +865,8 @@ loopExterno: while (true) {//looping
       batalhaMonstroFinal();
     }
   }
-  resposta = prompt(`DESEJA REINICIAR O JOGO? [SIM] ou [NAO]? `).toUpperCase().trim();
+  resposta = prompt(`Assim termina a nossa história! Mas lembre-se que é você que decide o destino do Coelho...
+  GOSTARIA DE REINICIAR O JOGO? [SIM] ou [NAO]? `).toUpperCase().trim();
   if (resposta === "SIM") {
     console.clear();
     relatorioFinalEndGame();
