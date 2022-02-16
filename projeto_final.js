@@ -5,6 +5,7 @@ let min = 10;
 let max = 30;
 min = Math.ceil(min);
 max = Math.floor(max);
+//criando reelatório
 function Relatorio() {
   (this.fase = fase),
   (this.nome = jogador.nome),
@@ -35,9 +36,7 @@ const javali = {
     let vidaDosMonstros = javali.vida * javali.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 2);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar os Javalis!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar os Javalis!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO") {
@@ -68,9 +67,7 @@ const aves = {
     let vidaDosMonstros = aves.vida * aves.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar as Aves!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar as Aves!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO") {
@@ -101,9 +98,7 @@ const urso = {
     let vidaDosMonstros = urso.vida * urso.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 2);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar os Ursos!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar os Ursos!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO INTERMEDIÁRIO") {
@@ -134,9 +129,7 @@ const tartaruga = {
     let vidaDosMonstros = tartaruga.vida * tartaruga.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 1);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar as tartarugas!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar as tartarugas!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO INTERMEDIÁRIO") {
@@ -167,9 +160,7 @@ const escorpiao = {
     let vidaDosMonstros = escorpiao.vida * escorpiao.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 2);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar o Escorpião!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar o Escorpião!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO TEMPLÁRIO") {
@@ -200,9 +191,7 @@ const tatu = {
     let vidaDosMonstros = tatu.vida * tatu.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 1);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar o Tatu!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar o Tatu!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO TEMPLÁRIO") {
@@ -233,9 +222,7 @@ const guarda = {
     let vidaDosMonstros = guarda.vida * guarda.quantidade;
     calculoDeRounds = parseInt(vidaDosMonstros / jogador.dano);
     jogador.vida = parseInt(jogador.vida - calculoDeRounds * 2);
-    console.log(
-      `Demorou ${parseInt(calculoDeRounds)} rounds para matar os Guardas!`
-    );
+    console.log(`Demorou ${parseInt(calculoDeRounds)} rounds para matar os Guardas!`);
     jogador.nivel++;
     console.log(`${jogador.nome} passou de nível!`);
     if (jogador.classe == "CAVALEIRO DE ELITE") {
@@ -297,9 +284,9 @@ Bom, sem mais delongas, sente-se confortavelmente e vamos nessa!
 }
 function nomeCoelhoUsuario() {//nome do usuario
   console.log();
-  jogador.nome = prompt("Digite o nome que você deseja para o coelho: ");
+  jogador.nome = prompt("Digite o nome que você deseja para o coelho [MAIOR QUE 3 CARACTERES]: ");
   if (jogador.nome.length <= 3) {
-    console.log("O nome do coelho precisa ser maior que 3: ");
+    console.log("O nome do coelho precisa ser maior que 3! ");
     nomeCoelhoUsuario();
   } else {
     escolhaCavaleiroMago();
@@ -307,11 +294,7 @@ function nomeCoelhoUsuario() {//nome do usuario
 }
 function escolhaCavaleiroMago() {//escolha de classe
   console.log();
-  jogador.classe = prompt(
-    "Digite a escolha de sua classe: [CAVALEIRO] ou [MAGO]: "
-  )
-    .toUpperCase()
-    .trim();
+  jogador.classe = prompt("Digite a escolha de sua classe: [CAVALEIRO] ou [MAGO]: ").toUpperCase().trim();
   if (jogador.classe === "CAVALEIRO" || jogador.classe === "MAGO") {
     jogador.dano = Math.floor(Math.random() * (max - min)) + min;
     jogador.nivel = 1;
@@ -326,8 +309,26 @@ function escolhaCavaleiroMago() {//escolha de classe
     );
     relatorio.push(objRelatorio);
   } else {
+    internoClasse: while(jogador.classe!='CAVALEIRO'||jogador.classe!='MAGO'){
     console.log("Classe diferente de [MAGO] e [CAVALEIRO]");
-    escolhaCavaleiroMago();
+    jogador.classe = prompt("Digite a escolha de sua classe: [CAVALEIRO] ou [MAGO]: ").toUpperCase().trim();
+    if(jogador.classe==='CAVALEIRO'||jogador.classe==='MAGO'){
+      jogador.dano = Math.floor(Math.random() * (max - min)) + min;
+      jogador.nivel = 1;
+      jogador.vida = 200;
+      fase = "fase inicial";
+      objRelatorio = new Relatorio(
+        fase,
+        jogador.nome,
+        jogador.classe,
+        jogador.dano,
+        parseInt(jogador.vida)
+      );
+      relatorio.push(objRelatorio)
+      
+    }
+    break internoClasse;
+    }
   }
   atribuicoesIniciais();
 }
@@ -347,10 +348,7 @@ function atribuicoesIniciais() {// inicio 2
   console.log(`FASE - 01`);
   console.log();
   console.log(
-    `${
-      jogador.nome
-    } sai de sua toca, monido com ${arma()} e 2 poções. Agora vai começar a sua caçada!`
-  );
+    `${jogador.nome} sai de sua toca, monido com ${arma()} e 2 poções. Agora vai começar a sua caçada!`);
   console.log();
   console.log(`Andando pela trilha, ele se depara com a toca das Aves e pelo outro lado o covil dos Javalis!
 Agora, meu nobre amigo, vou lhe explicar a situação...
@@ -359,11 +357,7 @@ Agora, meu nobre amigo, vou lhe explicar a situação...
 }
 function escolherCaminhoJavaliAves() {//escolha do usuario de combate - AVES OU JAVALI
   console.log();
-  escolhaUsuario = prompt(
-    `Qual caminho você escolherá para ${jogador.nome}? [AVES] ou [JAVALI]: `
-  )
-    .toUpperCase()
-    .trim();
+  escolhaUsuario = prompt(`Qual caminho você escolherá para ${jogador.nome}? [AVES] ou [JAVALI]: `).toUpperCase().trim();
   if (escolhaUsuario === "AVES" || escolhaUsuario === "JAVALI") {
     if (escolhaUsuario == "JAVALI") {
       console.log();
@@ -447,18 +441,10 @@ function escolherCaminhoJavaliAves() {//escolha do usuario de combate - AVES OU 
 }
 function mochilaAbrirFechar() {//opcao entre abrir mochila ou continuar jornada
   console.log();
-  console.log(
-    `${jogador.nome} perdeu vida durante a batalha e está com ${parseInt(
-      jogador.vida
-    )} pontos de vida`
-  );
+  console.log(`${jogador.nome} perdeu vida durante a batalha e está com ${parseInt(jogador.vida)} pontos de vida`);
   console.log();
-  console.log(
-    `Gostaria de usar uma poção para recuperar a vida ou prefere continuar?`
-  );
-  escolhaUsuario = prompt(`Escolha entre [ABRIR] ou [CONTINUAR]: `)
-    .toUpperCase()
-    .trim();
+  console.log(`Gostaria de usar uma poção para recuperar a vida ou prefere continuar?` );
+  escolhaUsuario = prompt(`Escolha entre [ABRIR] ou [CONTINUAR]: `).toUpperCase().trim();
   if (escolhaUsuario === "ABRIR" || escolhaUsuario === "CONTINUAR") {
     if (escolhaUsuario == "ABRIR") {
       escolhaAbrirMochila();
@@ -480,9 +466,7 @@ function escolhaUrsoTartaruga() {//tomada de decisao sobre os animais urso e tar
 Nessa pequena vila, corria um boato que um monstro com a aparência de uma cenoura gigante estava pelos arredores...
 Seguindo o boato, você prefere ir atrás do suposto Urso em forma de cenoura ou a Tartaruga em forma de cenoura?`);
   console.log();
-  escolhaUsuario = prompt(`Escolha entre [URSO] ou [TARTARUGA]: `)
-    .toUpperCase()
-    .trim();
+  escolhaUsuario = prompt(`Escolha entre [URSO] ou [TARTARUGA]: `).toUpperCase().trim();
   if (escolhaUsuario === "URSO" || escolhaUsuario === "TARTARUGA") {
     if (escolhaUsuario == "URSO") {
       console.log();
@@ -569,9 +553,7 @@ De longe, avistou uma placa informando duas cidades: Oreo e Piraquê.
 Cada uma das cidades é conhecida pelos seus animais característicos...
 Em Oreo, é comum encontrar Escorpião de lava e em Piraquê o famoso Tatu blindado`);
   console.log();
-  escolhaUsuario = prompt(`Escolha entre [OREO] ou [PIRAQUE]: `)
-    .toUpperCase()
-    .trim();
+  escolhaUsuario = prompt(`Escolha entre [OREO] ou [PIRAQUE]: `).toUpperCase().trim();
   if (escolhaUsuario === "OREO" || escolhaUsuario === "PIRAQUE") {
     if (escolhaUsuario == "OREO") {
       console.log();
@@ -658,9 +640,7 @@ Porém ele não tem o visto de permissão de entrada. Você tem duas opções:
 1- usar suas poções como suborno.
 2- lutar contra 2 guardas.`);
   console.log();
-  escolhaUsuario = prompt(`Escolha entre [SUBORNO] ou [LUTAR]: `)
-    .toUpperCase()
-    .trim();
+  escolhaUsuario = prompt(`Escolha entre [SUBORNO] ou [LUTAR]: `).toUpperCase().trim();
   if (escolhaUsuario === "SUBORNO" || escolhaUsuario === "LUTAR") {
     if (escolhaUsuario == "LUTAR") {
       console.log();
@@ -790,7 +770,7 @@ function batalhaMonstroFinal() {//monstro final criado
   vidaDosMonstro = monstroFinal.vida;
   calculoDeRounds = parseInt(vidaDosMonstro / jogador.dano);
   jogador.vida = parseInt(jogador.vida - calculoDeRounds * 3);
-  if (jogador.vida <= 0) {
+  if (jogador.vida <= 0){
 console.log(`[SONS DE ESPADA]: fuuuuim, TIN TIN...
 [SONS DO MONSTRO]:HUAAAAAAR, BOOOM...`)
 console.log();
@@ -865,8 +845,8 @@ loopExterno: while (true) {//looping
       batalhaMonstroFinal();
     }
   }
-  resposta = prompt(`Assim termina a nossa história! Mas lembre-se que é você que decide o destino do Coelho...
-  GOSTARIA DE REINICIAR O JOGO? [SIM] ou [NAO]? `).toUpperCase().trim();
+  console.log(`Assim termina a nossa história! Mas lembre-se, você que decide como vai ser...`)
+  resposta = prompt(`GOSTARIA DE REINICIAR O JOGO? [SIM] ou [NAO]? `).toUpperCase().trim();
   if (resposta === "SIM") {
     console.clear();
     relatorioFinalEndGame();
