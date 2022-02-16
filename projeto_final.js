@@ -313,22 +313,21 @@ function escolhaCavaleiroMago() {//escolha de classe
     console.log("Classe diferente de [MAGO] e [CAVALEIRO]");
     jogador.classe = prompt("Digite a escolha de sua classe: [CAVALEIRO] ou [MAGO]: ").toUpperCase().trim();
     if(jogador.classe==='CAVALEIRO'||jogador.classe==='MAGO'){
-      jogador.dano = Math.floor(Math.random() * (max - min)) + min;
-      jogador.nivel = 1;
-      jogador.vida = 200;
-      fase = "fase inicial";
-      objRelatorio = new Relatorio(
-        fase,
-        jogador.nome,
-        jogador.classe,
-        jogador.dano,
-        parseInt(jogador.vida)
-      );
-      relatorio.push(objRelatorio)
-      
+      break internoClasse;
     }
-    break internoClasse;
     }
+    jogador.dano = Math.floor(Math.random() * (max - min)) + min;
+    jogador.nivel = 1;
+    jogador.vida = 200;
+    fase = "fase inicial";
+    objRelatorio = new Relatorio(
+      fase,
+      jogador.nome,
+      jogador.classe,
+      jogador.dano,
+      parseInt(jogador.vida)
+    );
+    relatorio.push(objRelatorio)
   }
   atribuicoesIniciais();
 }
